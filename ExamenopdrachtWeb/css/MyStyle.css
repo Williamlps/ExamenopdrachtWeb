@@ -19,3 +19,13 @@ nav {
 .Header{
 
 }
+
+#carouselExampleIndicators {
+    max-height: 400px;
+    overflow: hidden;
+}
+
+#carouselExampleIndicators img {
+    height: 400px;
+    object-fit: cover;
+}
