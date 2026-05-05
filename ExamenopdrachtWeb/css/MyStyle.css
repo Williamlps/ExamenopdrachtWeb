@@ -9,23 +9,43 @@ body {
 header{
     background-color: var(--primary);
     color: var(--accent);
+    padding:5px;
+}
+
+footer {
+    background-color: var(--primary);
+    color: var(--accent);
     padding: 1rem;
+    text-align:center;
 }
 
 nav {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--primary);
 }
 
-.Header{
-
-}
-
+/*Carousel*/
 #carouselExampleIndicators {
-    max-height: 400px;
     overflow: hidden;
 }
 
-#carouselExampleIndicators img {
-    height: 400px;
-    object-fit: cover;
+/*Aanmelden*/
+
+.AanmeldenContainer {
+    width:80%;
+    margin: 10px auto;
+}
+
+.AmContent {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.btnAanmelden {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
 }

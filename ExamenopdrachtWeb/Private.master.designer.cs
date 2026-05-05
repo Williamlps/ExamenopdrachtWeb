@@ -11,7 +11,7 @@ namespace ExamenopdrachtWeb
 {
 
 
-    public partial class Public
+    public partial class Private
     {
 
         /// <summary>
