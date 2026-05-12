@@ -18,12 +18,11 @@ namespace ExamenopdrachtWeb
             if (txtGebruiker.Text == "admin" && txtWachtwoord.Text == "1234")
             {
                 Session["user"] = txtGebruiker.Text;
-                Response.Redirect("Default.aspx");
+                Response.Redirect("DefaultAangemeld.aspx");
             }
             else
             {
                 Foutmelding.Text = "Deze combinatie gebruikersnaam -\r\nwachtwoord is niet gekend.";
-                Foutmelding.CssClass = "alert-warning";
             }
         }
     }

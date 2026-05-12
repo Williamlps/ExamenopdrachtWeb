@@ -133,6 +133,9 @@
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
     <Content Include="Aanmelden.aspx" />
+    <Content Include="DefaultAangemeld.aspx" />
+    <Content Include="BeheerMerken.aspx" />
+    <Content Include="Huren.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Private.master.cs">
@@ -170,6 +173,27 @@
     </Compile>
     <Compile Include="Aanmelden.aspx.designer.cs">
       <DependentUpon>Aanmelden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultAangemeld.aspx.cs">
+      <DependentUpon>DefaultAangemeld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultAangemeld.aspx.designer.cs">
+      <DependentUpon>DefaultAangemeld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BeheerMerken.aspx.cs">
+      <DependentUpon>BeheerMerken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeheerMerken.aspx.designer.cs">
+      <DependentUpon>BeheerMerken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Huren.aspx.cs">
+      <DependentUpon>Huren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Huren.aspx.designer.cs">
+      <DependentUpon>Huren.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

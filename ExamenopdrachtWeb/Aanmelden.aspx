@@ -4,7 +4,8 @@
     <div class="AanmeldenContainer">
         <h1>Aanmelden</h1>
 
-        <asp:Label ID="Foutmelding" runat="server"></asp:Label>
+        <asp:Label ID="Foutmelding" runat="server" CssClass="alert alert-warning"></asp:Label>
+
 
         <div class="AmContent">
             <label for="txtGebruiker">Gebruikersnaam:</label>

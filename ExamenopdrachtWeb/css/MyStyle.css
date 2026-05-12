@@ -28,6 +28,16 @@ nav {
     overflow: hidden;
 }
 
+.carousel-caption{
+    background-color:var(--primary);
+}
+
+@media (max-width:600px){
+    .carousel-caption{
+        display:none;
+    }
+}
+
 /*Aanmelden*/
 
 .AanmeldenContainer {
@@ -48,4 +58,17 @@ nav {
     color: white;
     border: none;
     border-radius: 5px;
+}
+
+/*Huren*/
+
+.HurenContainer {
+    margin: 10px auto;
+    background-color:var(--accent);
+}
+
+.btnHuren {
+    background-color: var(--primary);
+    color: white;
+    border-radius:5px;
 }
