@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SvLib.Managers;
 
 namespace ExamenopdrachtWeb
 {
@@ -15,14 +16,31 @@ namespace ExamenopdrachtWeb
         }
         protected void btnAanmelden_Click(object sender, EventArgs e)
         {
-            if (txtGebruiker.Text == "admin" && txtWachtwoord.Text == "1234")
+            try
             {
-                Session["user"] = txtGebruiker.Text;
-                Response.Redirect("DefaultAangemeld.aspx");
+                if (string.IsNullOrEmpty(txtGebruiker.Text) || string.IsNullOrEmpty(txtWachtwoord.Text))
+                {
+                    Foutmelding.Text = "Vul alle velden in.";
+                    Foutmelding.Visible = true;
+                    return;
+                }
+
+                if (GebruikerManager.Login(txtGebruiker.Text, txtWachtwoord.Text))
+                {
+                    Session["user"] = txtGebruiker.Text;
+                    Response.Redirect("DefaultAangemeld.aspx");
+                }
+                else
+                {
+                    Foutmelding.Text = "Deze combinatie gebruikersnaam - wachtwoord is niet gekend.";
+                    Foutmelding.Visible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Foutmelding.Text = "Deze combinatie gebruikersnaam -\r\nwachtwoord is niet gekend.";
+                Foutmelding.Text = "Er is een fout opgetreden: " + ex.Message;
+                Foutmelding.CssClass = "alert alert-danger";
+                Foutmelding.Visible = true;
             }
         }
     }

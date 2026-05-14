@@ -12,18 +12,18 @@
 
         <div class="carousel-inner">
 
-            <div class="carousel-item active" data-bs-interval="1000">
+            <div class="carousel-item active" data-bs-interval="5000">
                 <img class="d-block w-100" src="images/ski.jpg">
-                <a href="Huren.aspx" class="carousel-caption">
-                    Klik hier om je skimateriaal te huren
-                </a>
+                <div class="carousel-caption">
+                    <a href="Huren.aspx">Klik hier om je alpine skimateriaal te huren</a>
+                </div>
             </div>
 
-            <div class="carousel-item" data-bs-interval="1000">
+            <div class="carousel-item" data-bs-interval="5000">
                 <img class="d-block w-100" src="images/xc.jpg">
-                <a href="Huren.aspx" class="carousel-caption">
-                    Klick hier om je langlaufmateriaal te huren
-                </a>
+                <div class="carousel-caption">
+                    <a href="Huren.aspx">Klik hier om je langlaufmateriaal te huren</a>
+                </div>
             </div>
         </div>
 

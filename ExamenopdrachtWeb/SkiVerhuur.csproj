@@ -233,6 +233,12 @@
   <ItemGroup>
     <Folder Include="images\dames\sneakers\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SvLib\SvLib.csproj">
+      <Project>{d93e26f3-c1ca-4be6-8977-fa90cfba33e9}</Project>
+      <Name>SvLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
