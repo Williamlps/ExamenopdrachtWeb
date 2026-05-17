@@ -66,3 +66,8 @@ nav {
     color: var(--secondary);
     border-radius: 5px;
 }
+
+#HTitel {
+    text-align: center;
+    color: var(--primary);
+}

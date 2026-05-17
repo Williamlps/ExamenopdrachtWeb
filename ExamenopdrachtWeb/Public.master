@@ -11,15 +11,13 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Verhuur</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Snowboard</a></li>
-                        <li><a class="dropdown-item" href="#">Langlauf</a></li>
+                        <li><a class="dropdown-item" href="Huren.aspx?sport=Alpine">Alpineskiën</a></li>
+                        <li><a class="dropdown-item" href="Huren.aspx?sport=Langlaufen">Langlaufen</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="Aanmelden.aspx">Aanmelden</a>
                 </li>

@@ -53,6 +53,11 @@
     <Compile Include="DataObjects\Uitlening.cs" />
     <Compile Include="DataObjects\UitleningMateriaal.cs" />
     <Compile Include="Managers\GebruikerManager.cs" />
+    <Compile Include="Managers\MaatManager.cs" />
+    <Compile Include="Managers\MateriaalMaatManager.cs" />
+    <Compile Include="Managers\MateriaalManager.cs" />
+    <Compile Include="Managers\MerkManager.cs" />
+    <Compile Include="Managers\TypeMateriaalManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
