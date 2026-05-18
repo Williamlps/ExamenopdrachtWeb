@@ -52,6 +52,7 @@
     <Compile Include="DataObjects\TypeSport.cs" />
     <Compile Include="DataObjects\Uitlening.cs" />
     <Compile Include="DataObjects\UitleningMateriaal.cs" />
+    <Compile Include="DataObjects\WinkelmandItem.cs" />
     <Compile Include="Managers\GebruikerManager.cs" />
     <Compile Include="Managers\MaatManager.cs" />
     <Compile Include="Managers\MateriaalMaatManager.cs" />

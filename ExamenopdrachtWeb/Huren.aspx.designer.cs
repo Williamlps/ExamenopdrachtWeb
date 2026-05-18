@@ -24,15 +24,6 @@ namespace ExamenopdrachtWeb
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// HurenFoutmelding control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label HurenFoutmelding;
-
-        /// <summary>
         /// TitelHuren control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace ExamenopdrachtWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label TitelHuren;
+
+        /// <summary>
+        /// HurenFoutmelding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label HurenFoutmelding;
 
         /// <summary>
         /// dpBeginDatum control.
@@ -148,5 +148,23 @@ namespace ExamenopdrachtWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBevestigen;
+
+        /// <summary>
+        /// rptWinkelmand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptWinkelmand;
+
+        /// <summary>
+        /// btnSluitWinkelmand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSluitWinkelmand;
     }
 }

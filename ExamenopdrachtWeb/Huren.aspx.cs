@@ -61,6 +61,7 @@ namespace ExamenopdrachtWeb
                 ddlTypeMateriaal.DataTextField = "Naam";
                 ddlTypeMateriaal.DataValueField = "Id";
                 ddlTypeMateriaal.DataBind();
+                ddlTypeMateriaal.Items.Insert(0, new ListItem("-- Selecteer een type --", "0"));
             }
             catch (Exception ex)
             {
@@ -79,7 +80,6 @@ namespace ExamenopdrachtWeb
                 ddlMerk.DataTextField = "Naam";
                 ddlMerk.DataValueField = "Id";
                 ddlMerk.DataBind();
-                LaadMaterialen();
 
                 ddlMateriaal.Items.Clear();
                 ddlMaat.Items.Clear();
@@ -252,6 +252,91 @@ namespace ExamenopdrachtWeb
                 BerekenBeschikbaar();
             }
             catch (Exception ex)
+            {
+                ToonFout("Er is een fout opgetreden: " + ex.Message, "alert-danger");
+            }
+        }
+
+        protected void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int aantal;
+
+                if (!int.TryParse(txtAantal.Text, out aantal))
+                {
+                    ToonFout("Geef een geldig aantal in.", "alert-warning");
+                    return;
+                }
+
+                int beschickbaar = Convert.ToInt32(txtBeschikbaar.Text);
+
+                if (aantal < 1)
+                {
+                    ToonFout("Het aantal moet minstens 1 zijn.", "alert-warning");
+                    txtAantal.Text = "1";
+                    return;
+                }
+
+                if (aantal > beschickbaar)
+                {
+                    ToonFout("Het aantal kan niet groter zijn dan het beschikbare aantal.", "alert-warning");
+                    txtAantal.Text = beschickbaar.ToString();
+                    return;
+                }
+
+                int materiaalId = Convert.ToInt32(ddlMateriaal.SelectedValue);
+                int maatId = Convert.ToInt32(ddlMaat.SelectedValue);
+                MateriaalMaat mm = MateriaalMaatManager.GetByMateriaalEnMaat(materiaalId, maatId);
+
+                WinkelmandItem item = new WinkelmandItem();
+                item.MateriaalMaatId = mm.Id;
+                item.MerkNaam = ddlMerk.SelectedItem.Text;
+                item.MateriaalModel = ddlMateriaal.SelectedItem.Text;
+                item.MaatNaam = ddlMaat.SelectedItem.Text;
+                item.Aantal = aantal;
+                item.BeginDatum = Convert.ToDateTime(dpBeginDatum.Text);
+                item.EindDatum = Convert.ToDateTime(dpEindDatum.Text);
+
+                List<WinkelmandItem> winkelmand;
+                if (Session["Winkelmand"] == null)
+                    winkelmand = new List<WinkelmandItem>();
+                else
+                    winkelmand = (List<WinkelmandItem>)Session["Winkelmand"];
+
+                winkelmand.Add(item);
+                Session["Winkelmand"] = winkelmand;
+
+                HurenFoutmelding.Text = "Item toegevoegd aan winkelmand.";
+                HurenFoutmelding.CssClass = "alert alert-success";
+                HurenFoutmelding.Visible = true;
+
+
+            }
+            catch (Exception ex)
+            {
+                ToonFout("Er is een fout opgetreden: " + ex.Message, "alert-danger");
+            }
+        }
+
+        protected void btnWinkelmand_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(Session["Winkelmand"] == null || ((List<WinkelmandItem>)Session["Winkelmand"]).Count == 0)
+                {
+                    ToonFout("Je winkelmand is leeg.Voeg eerst items toe voordat je naar de winkelmand gaat.", "alert-warning");
+                    return;
+                }
+
+                List<WinkelmandItem> winkelmand = (List<WinkelmandItem>)Session["Winkelmand"];
+                rptWinkelmand.DataSource = winkelmand;
+                rptWinkelmand.DataBind();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "openModal",
+            "var modal = new bootstrap.Modal(document.getElementById('modalWinkelmand')); modal.show();", true);
+            }
+            catch(Exception ex)
             {
                 ToonFout("Er is een fout opgetreden: " + ex.Message, "alert-danger");
             }

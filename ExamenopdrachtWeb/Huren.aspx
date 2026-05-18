@@ -5,11 +5,13 @@
         <div class="container">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:Label ID="HurenFoutmelding" runat="server" CssClass="alert" Visible="false"></asp:Label>
 
                     <h2 id="HTitel">
                         <asp:Label ID="TitelHuren" runat="server"></asp:Label>
                     </h2>
+                    <div class="mb-3">
+                        <asp:Label ID="HurenFoutmelding" runat="server" CssClass="alert" Visible="false"></asp:Label>
+                    </div>
 
                     <div class="row">
                         <div class="col-12 col-md-8">
@@ -60,12 +62,44 @@
                     </div>
 
                     <div class="mb-3 d-flex justify-content-center gap-3">
-                        <asp:Button runat="server" ID="btnToevoegen" CssClass="btnHuren" Text="Toevoegen aan winkelmand" />
-                        <asp:Button runat="server" ID="btnWinkelmand" CssClass="btnHuren" Text="Toon winkelmand" />
+                        <asp:Button runat="server" ID="btnToevoegen" CssClass="btnHuren" Text="Toevoegen aan winkelmand" OnClick="btnToevoegen_Click" />
+                        <asp:Button runat="server" ID="btnWinkelmand" CssClass="btnHuren" Text="Toon winkelmand" OnClick="btnWinkelmand_Click" />
                         <asp:Button runat="server" ID="btnBevestigen" CssClass="btnHuren" Text="Huur bevestigen" />
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
+        </div>
+
+        <!-- Winkelmand Modal -->
+        <div class="modal fade" id="modalWinkelmand" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Winkelmand</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Repeater ID="rptWinkelmand" runat="server">
+                            <ItemTemplate>
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <%# Eval("MerkNaam") %> - <%# Eval("MateriaalModel") %> (<%# Eval("MaatNaam") %>)
+                                    </div>
+                                    <div class="col-md-3">
+                                        Aantal: <%# Eval("Aantal") %>
+                                    </div>
+                                    <div class="col-md-3">
+                                        Periode: <%# Eval("BeginDatum", "{0:dd-MM-yyyy}") %> tot <%# Eval("EindDatum", "{0:dd-MM-yyyy}") %>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnSluitWinkelmand" runat="server" Text="Sluiten" CssClass="btn w-100" data-bs-dismiss="modal" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

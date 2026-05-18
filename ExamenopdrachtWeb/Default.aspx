@@ -15,14 +15,14 @@
             <div class="carousel-item active" data-bs-interval="5000">
                 <img class="d-block w-100" src="images/ski.jpg">
                 <div class="carousel-caption">
-                    <a href="Huren.aspx">Klik hier om je alpine skimateriaal te huren</a>
+                    <a href="Huren.aspx?sport=Alpine">Klik hier om je alpine skimateriaal te huren</a>
                 </div>
             </div>
 
             <div class="carousel-item" data-bs-interval="5000">
                 <img class="d-block w-100" src="images/xc.jpg">
                 <div class="carousel-caption">
-                    <a href="Huren.aspx">Klik hier om je langlaufmateriaal te huren</a>
+                    <a href="Huren.aspx?sport=Langlaufen">Klik hier om je langlaufmateriaal te huren</a>
                 </div>
             </div>
         </div>
