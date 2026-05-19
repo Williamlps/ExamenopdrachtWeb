@@ -66,40 +66,34 @@
                         <asp:Button runat="server" ID="btnWinkelmand" CssClass="btnHuren" Text="Toon winkelmand" OnClick="btnWinkelmand_Click" />
                         <asp:Button runat="server" ID="btnBevestigen" CssClass="btnHuren" Text="Huur bevestigen" />
                     </div>
+
+                    <!-- Winkelmand Modal -->
+                    <div class="modal fade" id="modalWinkelmand" tabindex="-1">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title pb-3 fw-bold">Winkelmand</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <asp:Repeater ID="rptWinkelmand" runat="server">
+                                        <ItemTemplate>
+                                            <div class="row p-2 <%# Container.ItemIndex % 2 == 0 ? "bg-white" : "bg-secondary bg-opacity-25" %>">
+                                                <div class="col-6"><%# Eval("MerkNaam") %> - <%# Eval("MateriaalModel") %> (<%# Eval("MaatNaam") %>)</div>
+                                                <div class="col-2">Aantal: <%# Eval("Aantal") %></div>
+                                                <div class="col-4">Periode: <%# Eval("BeginDatum", "{0:dd-MM-yyyy}") %> tot <%# Eval("EindDatum", "{0:dd-MM-yyyy}") %></div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
+                                <div class="modal-footer">
+                                    <asp:Button ID="btnSluitWinkelmand" runat="server" Text="Sluiten" CssClass="btn w-100 " style="background-color:#0042B8; color:white;" data-bs-dismiss="modal" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
-        </div>
-
-        <!-- Winkelmand Modal -->
-        <div class="modal fade" id="modalWinkelmand" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Winkelmand</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <asp:Repeater ID="rptWinkelmand" runat="server">
-                            <ItemTemplate>
-                                <div class="row mb-2">
-                                    <div class="col-md-6">
-                                        <%# Eval("MerkNaam") %> - <%# Eval("MateriaalModel") %> (<%# Eval("MaatNaam") %>)
-                                    </div>
-                                    <div class="col-md-3">
-                                        Aantal: <%# Eval("Aantal") %>
-                                    </div>
-                                    <div class="col-md-3">
-                                        Periode: <%# Eval("BeginDatum", "{0:dd-MM-yyyy}") %> tot <%# Eval("EindDatum", "{0:dd-MM-yyyy}") %>
-                                    </div>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </div>
-                    <div class="modal-footer">
-                        <asp:Button ID="btnSluitWinkelmand" runat="server" Text="Sluiten" CssClass="btn w-100" data-bs-dismiss="modal" />
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

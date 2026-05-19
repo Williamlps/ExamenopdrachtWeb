@@ -61,7 +61,7 @@ namespace ExamenopdrachtWeb
                 ddlTypeMateriaal.DataTextField = "Naam";
                 ddlTypeMateriaal.DataValueField = "Id";
                 ddlTypeMateriaal.DataBind();
-                ddlTypeMateriaal.Items.Insert(0, new ListItem("-- Selecteer een type --", "0"));
+                LaadMerken();
             }
             catch (Exception ex)
             {
@@ -85,6 +85,8 @@ namespace ExamenopdrachtWeb
                 ddlMaat.Items.Clear();
                 txtBeschikbaar.Text = "";
                 imgMateriaal.ImageUrl = "~/images/no-image-available.png";
+
+                LaadMaterialen();
             }
             catch (Exception ex)
             {
@@ -106,6 +108,9 @@ namespace ExamenopdrachtWeb
                 ddlMaat.Items.Clear();
                 txtBeschikbaar.Text = "";
                 imgMateriaal.ImageUrl = "~/images/no-image-available.png";
+
+                LaadMaten();
+                LaadFoto();
             }
             catch (Exception ex)
             {
@@ -124,8 +129,7 @@ namespace ExamenopdrachtWeb
                 ddlMaat.DataValueField = "Id";
                 ddlMaat.DataBind();
 
-                txtBeschikbaar.Text = "";
-                LaadFoto();
+                BerekenBeschikbaar();
             }
             catch (Exception ex)
             {
@@ -325,7 +329,7 @@ namespace ExamenopdrachtWeb
             {
                 if(Session["Winkelmand"] == null || ((List<WinkelmandItem>)Session["Winkelmand"]).Count == 0)
                 {
-                    ToonFout("Je winkelmand is leeg.Voeg eerst items toe voordat je naar de winkelmand gaat.", "alert-warning");
+                    ToonFout("Je winkelmand is leeg. Voeg eerst items toe voordat je naar de winkelmand gaat.", "alert-warning");
                     return;
                 }
 
@@ -333,7 +337,7 @@ namespace ExamenopdrachtWeb
                 rptWinkelmand.DataSource = winkelmand;
                 rptWinkelmand.DataBind();
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "openModal",
+                ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "openModal",
             "var modal = new bootstrap.Modal(document.getElementById('modalWinkelmand')); modal.show();", true);
             }
             catch(Exception ex)
